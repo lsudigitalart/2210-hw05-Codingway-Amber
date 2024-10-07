@@ -1,30 +1,54 @@
-var x = 0;
+var x;
+var s;
+var sw;
 
 
 function setup() {
-  createCanvas(800, 800); 
-  rectMode(CENTER); 
-  frameRate(28);
+  createCanvas(800, 800);
+  rectMode(CENTER);
+  x = 0;
+  s = 0;
+  sw = 5;
+  // frameRate(28);
 }
 
 function draw() {
-  background(240, 239, 224); 
+  background(240, 239, 224);
   // mouse position
   // fill(255, 0, 0); 
   // stroke(255, 0, 0);
-  text(mouseX, 0, 180); 
-  text(mouseY, 0, 200); 
+  text(mouseX, 0, 180);
+  text(mouseY, 0, 200);
 
   push();
-  x+= 0.02;
-  translate (width/2, height/2); 
-  noFill(); 
-  stroke(2);
+  // for (var i = 0; i <= 1; i++) {
+  if (frameCount % 30 == 0) {
+    x += PI / 4;
+    print(frameCount);
+    if (frameCount % 20 == 0) {
+      s = 0.3;
+      print("big")
+      sw =  1/s
+    } else {
+      s = 0.1
+      print("small")
+      sw = 1/s;
+    }
+  }
+  translate(width / 2, height / 2);
+  noFill();
+  stroke(0);
   rotate(x);
   rect(0, 0, 600, 600);
   pop();
 
+  push();
+  translate(width / 2, height / 2);
+
+  scale(s)
   stroke(255, 0, 0);
-  line(170, 170, 630, 630); 
-  line(630, 170, 170, 630);
+  strokeWeight(sw)
+  line(-width, -height, width, height);
+  line(width, -height, -width, height);
+  pop()
 }
