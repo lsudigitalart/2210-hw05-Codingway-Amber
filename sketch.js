@@ -2,36 +2,29 @@ var x;
 var s;
 var sw;
 
-
 function setup() {
   createCanvas(800, 800);
   rectMode(CENTER);
   x = 0;
   s = 0;
   sw = 5;
-  // frameRate(28);
 }
 
 function draw() {
   background(240, 239, 224);
-  // mouse position
-  // fill(255, 0, 0); 
-  // stroke(255, 0, 0);
-  text(mouseX, 0, 180);
-  text(mouseY, 0, 200);
 
+  // Square
   push();
-  // for (var i = 0; i <= 1; i++) {
   if (frameCount % 30 == 0) {
     x += PI / 4;
     print(frameCount);
     if (frameCount % 20 == 0) {
       s = 0.3;
-      print("big")
-      sw =  1/s
+      print("big");
+      sw =  1/s;
     } else {
-      s = 0.1
-      print("small")
+      s = 0.1;
+      print("small");
       sw = 1/s;
     }
   }
@@ -44,11 +37,10 @@ function draw() {
 
   push();
   translate(width / 2, height / 2);
-
-  scale(s)
+  scale(s);
   stroke(255, 0, 0);
-  strokeWeight(sw)
+  strokeWeight(sw);
   line(-width, -height, width, height);
   line(width, -height, -width, height);
-  pop()
+  pop();
 }
