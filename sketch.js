@@ -1,3 +1,5 @@
+// Based on "Wall Drawing 160" by Sol LeWitt
+
 var x;
 var s;
 var sw;
