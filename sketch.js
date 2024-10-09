@@ -37,6 +37,7 @@ function draw() {
   rect(0, 0, 600, 600);
   pop();
 
+  // The X
   push();
   translate(width / 2, height / 2);
   scale(s);
